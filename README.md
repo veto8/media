@@ -13,6 +13,7 @@ Media Manipulation with command line tools
 | 3 | Loop MP4 video (ffmpeg) |
 | 4 | Trim audio, m4a to mp3 (ffmpeg + sox) |
 | 5 | Convert MOV to MP4 (ffmpeg) |
+| 6 | Print SVG/PNG size and generate icons (ImageMagick) |
 
 Each task asks for its inputs, with the old hardcoded values as defaults.
-Requires `yt-dlp`, `ffmpeg` and `sox` installed.
+Requires `yt-dlp`, `ffmpeg`, `sox` and ImageMagick (`identify`, `convert`) installed.

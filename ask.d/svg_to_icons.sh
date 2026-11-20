@@ -1,5 +1,5 @@
 #!/bin/sh
-# id: 5
+# id: 6
 # desc: SVG - print size and make icons
 
 printf "  Identify file [svg.png]: "
