@@ -9,10 +9,22 @@ read -r source
 source=${source:-source.svg}
 
 source=$(expand_path "$source")
+default_output_dir=$(dirname "$source")
 
-convert "$source" -resize 320x320 screenshot_320x320.ico || exit 1
-convert "$source" -resize 192x192 icon_192x192.ico || exit 1
-convert "$source" -resize 512x512 icon_512x512.png || exit 1
-convert "$source" -resize 104x104 logo.png || exit 1
-convert "$source" -resize 64x64 ../favicon.ico || exit 1
-convert "$source" -resize 384x384 ../favicon.png || exit 1
+printf "  Output directory [%s]: " "$default_output_dir"
+read -r output_dir
+output_dir=${output_dir:-$default_output_dir}
+
+output_dir=$(expand_path "$output_dir")
+mkdir -p "$output_dir" || exit 1
+
+make_icon() {
+  convert "$source" -background none -alpha on -resize "$1x$1" -gravity center -extent "${1}x${1}" -depth 8 "$2" || exit 1
+}
+
+make_icon 320 "$output_dir/screenshot_320x320.ico"
+make_icon 192 "$output_dir/icon_192x192.ico"
+make_icon 512 "$output_dir/icon_512x512.png"
+make_icon 104 "$output_dir/logo.png"
+make_icon 64 "$output_dir/favicon.ico"
+make_icon 384 "$output_dir/favicon.png"
