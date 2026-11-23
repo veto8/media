@@ -1,16 +1,14 @@
 #!/bin/sh
-# id: 6
-# desc: SVG - print size and make icons
+# id: 7
+# desc: SVG - make icons
 
-printf "  Identify file [svg.png]: "
-read -r identify_file
-identify_file=${identify_file:-svg.png}
+. "$(dirname "$0")/lib_path"
 
 printf "  Source SVG [source.svg]: "
 read -r source
 source=${source:-source.svg}
 
-identify -format "%wx%h\n" "$identify_file" || exit 1
+source=$(expand_path "$source")
 
 convert "$source" -resize 320x320 screenshot_320x320.ico || exit 1
 convert "$source" -resize 192x192 icon_192x192.ico || exit 1

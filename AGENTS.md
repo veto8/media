@@ -20,16 +20,19 @@ can also be run directly, e.g. `./ask.d/loop_mp4.sh`.
 | 3 | `ask.d/loop_mp4.sh` | loop MP4 videos |
 | 4 | `ask.d/tim_audio.sh` | trim/convert audio (m4a → wav → mp3 via ffmpeg + sox) |
 | 5 | `ask.d/mov_to_mp4.sh` | convert MOV to MP4 (H.264/AAC re-encode, faststart) |
-| 6 | `ask.d/svg_to_icons.sh` | print size, convert SVG to 320/192/512/104/64/384 icons + favicons |
+| 6 | `ask.d/svg_print_size.sh` | print image size |
+| 7 | `ask.d/svg_to_icons.sh` | convert SVG to 320/192/512/104/64/384 icons + favicons |
 
 ## Structure
 - `ask.sh` — task switch (menu + dispatch, built from `ask.d/` headers)
+- `ask.d/lib_path` — expands `~/...` paths from task prompts
 - `ask.d/get_audio_from_youtube.sh` — download audio from YouTube
 - `ask.d/add_mp3_to_mp4.sh` — mux MP3 into MP4
 - `ask.d/loop_mp4.sh` — loop MP4 videos
 - `ask.d/tim_audio.sh` — audio timing helper
 - `ask.d/mov_to_mp4.sh` — convert MOV to MP4
-- `ask.d/svg_to_icons.sh` — print dimensions, generate icons/favicons from SVG
+- `ask.d/svg_print_size.sh` — print image dimensions
+- `ask.d/svg_to_icons.sh` — generate icons/favicons from SVG
 
 ## Conventions
 - No comments in code unless asked.

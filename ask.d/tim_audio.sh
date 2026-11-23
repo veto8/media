@@ -2,9 +2,13 @@
 # id: 4
 # desc: Trim audio (m4a to mp3)
 
+. "$(dirname "$0")/lib_path"
+
 printf "  Input file [a.m4a]: "
 read -r input
 input=${input:-a.m4a}
+
+input=$(expand_path "$input")
 
 printf "  Trim start [8]: "
 read -r start
