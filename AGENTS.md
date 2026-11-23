@@ -21,7 +21,7 @@ can also be run directly, e.g. `./ask.d/loop_mp4.sh`.
 | 4 | `ask.d/tim_audio.sh` | trim/convert audio (m4a → wav → mp3 via ffmpeg + sox) |
 | 5 | `ask.d/mov_to_mp4.sh` | convert MOV to MP4 (H.264/AAC re-encode, faststart) |
 | 6 | `ask.d/svg_print_size.sh` | print image size |
-| 7 | `ask.d/svg_to_icons.sh` | convert SVG to transparent icons + favicons in chosen output dir (defaults to source dir) |
+| 7 | `ask.d/svg_to_icons.sh` | convert SVG to transparent icons + favicons in chosen output dir (defaults to `<source-root>/pages/img`) |
 
 ## Structure
 - `ask.sh` — task switch (menu + dispatch, built from `ask.d/` headers)
@@ -32,7 +32,7 @@ can also be run directly, e.g. `./ask.d/loop_mp4.sh`.
 - `ask.d/tim_audio.sh` — audio timing helper
 - `ask.d/mov_to_mp4.sh` — convert MOV to MP4
 - `ask.d/svg_print_size.sh` — print image dimensions
-- `ask.d/svg_to_icons.sh` — generate transparent icons/favicons from SVG into chosen output dir
+- `ask.d/svg_to_icons.sh` — generate transparent icons/favicons into chosen output dir (default `<source-root>/pages/img`)
 
 ## Conventions
 - No comments in code unless asked.

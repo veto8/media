@@ -9,7 +9,8 @@ read -r source
 source=${source:-source.svg}
 
 source=$(expand_path "$source")
-default_output_dir=$(dirname "$source")
+source_root=$(dirname "$source")
+default_output_dir="$source_root/pages/img"
 
 printf "  Output directory [%s]: " "$default_output_dir"
 read -r output_dir
@@ -19,7 +20,7 @@ output_dir=$(expand_path "$output_dir")
 mkdir -p "$output_dir" || exit 1
 
 make_icon() {
-  convert "$source" -background none -alpha on -resize "$1x$1" -gravity center -extent "${1}x${1}" -depth 8 "$2" || exit 1
+  convert -background none -alpha on "$source" -resize "$1x$1" -gravity center -extent "${1}x${1}" -depth 8 "$2" || exit 1
 }
 
 make_icon 320 "$output_dir/screenshot_320x320.ico"
